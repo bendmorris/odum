@@ -1,0 +1,3 @@
+#!/bin/bash
+# usage: ./run_on_hadoop input_file output_dir
+hadoop jar /var/hadoop/contrib/streaming/hadoop-streaming-1.0.4.jar -D mapred.reduce.tasks=1 -file "$(pwd)/mapper.py" -mapper mapper.py -file "$(pwd)/reducer.py" -reducer reducer.py -input $1 -output $2
